@@ -1,1 +1,22 @@
-{"name":"theme-ramuda","displayName":"%displayName%","description":"%description%","version":"1.0.0","publisher":"RienZhang","license":"MIT","engines":{"vscode":"*"},"contributes":{"themes":[{"id":"Ramuda","label":"%themeLabel%","uiTheme":"vs-dark","path":"./themes/ramuda-color-theme.json"}]},"repository":{"type":"git","url":"https://github.com/microsoft/vscode.git"}}
+{
+    "name":"theme-ramuda",
+    "displayName":"%displayName%",
+    "description":"%description%",
+    "version":"1.0.0",
+    "publisher":"RienZhang",
+    "license":"MIT",
+    "engines":{"vscode":"*"},
+    "contributes":
+    {
+        "themes":
+        [
+            {
+            "id":"Ramuda",
+            "label":"%themeLabel%",
+            "uiTheme":"vs-dark",
+            "path":"./themes/ramuda-color-theme.json"
+            }
+        ]
+    },
+    "repository":{"type":"git","url":"https://github.com/fifthfir/Play.git"}
+}
