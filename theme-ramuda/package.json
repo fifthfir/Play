@@ -2,10 +2,15 @@
     "name":"theme-ramuda-pink-dark",
     "displayName":"%displayName%",
     "description":"%description%",
+    "keywords": ["vscode", "theme", "pink", "dark"],
     "version":"1.0.0",
     "publisher":"RienZhang",
+    "icon": "image.png",
     "license":"MIT",
     "engines":{"vscode":"*"},
+    "categories": [
+		"Themes"
+	],
     "contributes":
     {
         "themes":
