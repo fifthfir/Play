@@ -138,14 +138,12 @@
 	"tokenColors": [
 		{
 			"settings": {
-				"background": "#202330",
 				"foreground": "#FFF0F5"
 			}
 		},
 		{
 			"name": "By uonick",
 			"settings": {
-				"background": "#202025ff",
 				"foreground": "#c5c8c6ff"
 			}
 		},
@@ -155,7 +153,6 @@
 				"source.groovy.embedded"
 			],
 			"settings": {
-				"background": "#1e1e1e",
 				"foreground": "#C5C8C6"
 			}
 		},
@@ -435,7 +432,6 @@
 			"name": "diff: header",
 			"scope": "meta.diff, meta.diff.header",
 			"settings": {
-				"background": "#b58900",
 				"fontStyle": "italic",
 				"foreground": "#E0EDDD"
 			}
@@ -444,7 +440,6 @@
 			"name": "diff: deleted",
 			"scope": "markup.deleted",
 			"settings": {
-				"background": "#f0e8cf",
 				"fontStyle": "",
 				"foreground": "#dc322f"
 			}
@@ -453,7 +448,6 @@
 			"name": "diff: changed",
 			"scope": "markup.changed",
 			"settings": {
-				"background": "#f0e8cf",
 				"fontStyle": "",
 				"foreground": "#e53c70"
 			}
@@ -462,7 +456,6 @@
 			"name": "diff: inserted",
 			"scope": "markup.inserted",
 			"settings": {
-				"background": "#f0e8cf",
 				"foreground": "#219186"
 			}
 		},
