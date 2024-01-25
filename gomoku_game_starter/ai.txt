@@ -1,0 +1,102 @@
+This document provides an explanation of the AI program developed for the game of Gomoku.
+
+# In this document we talk about how to control the AI, so I use 'our' or 'we' sometimes
+# not representing the [human player], but 'we want the [computer] to'.
+
+
+1. Smartness of the Computer Player
+
+    The computer player in this AI program attempts to be smart by analyzing the game board
+    and making strategic moves. It goes beyond random moves and employs a set of rules and
+    strategies to determine the best move in a given situation. The aim is to create a challenging
+    opponent that can compete effectively with human players.
+
+
+2. Picking the Next Move
+
+    The AI program uses a multi-step approach to determine the next move:
+
+    First Move:         If it's the first move of the game, the AI places a stone randomly in the vicinity
+                        of the opponent's last move.
+
+    Strategic Moves:    In subsequent moves, the AI evaluates the board to identify several strategic
+                        situations.
+
+                        The first idea is that: for a certain form of a row, regardless of the color
+                        of a row of stones, we actually want to do the same to them: build our row first,
+                        and then block the opposite's. Like for 'NXXXN' and 'NOOON', 'X' and 'O' representing
+                        two colors and 'N' for empty, they are all the same except the order we want
+                        to deal with them. That is, we just have to find out one certain kind of row for
+                        one time, and then make our move.
+
+                        The second idea is that: to find a certain row we want, there are seceral factors.
+                            - The start point to find a row:        That's tricky. We always count from one place
+                                                                    that has stone, but we can actually treat it
+                                                                    as we count from a empty place, and see how
+                                                                    many we can reach after this step. That can
+                                                                    make it easier and universal to handle a
+                                                                    consecutive row and a gap row in one flow,
+                                                                    and also intersections.
+                            - The growing room for a row:           We want this row has the possibility to grow into
+                                                                    five, or we should give it up.
+                            - The consecutive number of this row:   Like said in the first part, we count the
+                                                                    number of [this place] that we will might
+                                                                    place a stone, and stones of same color at
+                                                                    [both sides] of it. The sum of them will be
+                                                                    the number we will reach, and number of
+                                                                    each side can help us to find which side has
+                                                                    more room to grow.
+                            - The empty ends this row has:          We always want to make a row longer and have
+                                                                    two empty ends to make the opposite have to
+                                                                    deal with this emergency.
+                            - If there is any intersection:         To grow or block an intersection can be useful
+                                                                    for AI to win careless humans. We can use the
+                                                                    find row functions to make this up.
+
+                        The third and the main strategic part is to decide our next move based on the above
+                        rules and calculations. That is basically the strategy how I play Gomoku actually....
+                        Steps come in order. That is, it will only go on when the former one cannot be done.
+                            - Winning moves (5 in a row).       I win first, then block the opponent.
+                            - Winning intersections.            Like to make/block a row of 4 with 1 end and a
+                                                                row of 3 with 2 ends appear at the same time.
+                            - Alomst winning moves.             Like to make/block a row of 4 and 2 empty ends.
+                            - Almost winning intersections.     Like to make/block two rows of 3 with 2 ends appear
+                                                                at the same time.
+                            - Most common conditions.           Like to make/block a row of 3 with 2 ends. Not fatal
+                                                                but useful.
+                            - Better than nothing.              Like to make/block a row of 2 with 2 ends or a row of
+                                                                4 with 1 end.
+                            - Random moves.                     Just to make sure we can make legal moves before the
+                                                                board becoming full.
+
+
+3. Success Rate
+
+    Though the computer doesn't win all the time, it wins like 80% when my friend or I play with it.
+
+
+4. Adjusting Difficulty
+
+    It is quite straightforward to adjust the difficulty level. We can just write in or erase out what kinds of
+    conditions we want the AI to notice. For example, it will become a lot easier if we cancel all the search of
+    intersection conditions.
+
+    (Straightforward but not quite AI)
+
+
+5. Future Improvements
+
+    For now, I don't know if it can be called an 'AI' - it is just do what I said to it, becoming a player just better
+    than me, while I am not even a serious player.
+
+    In the future, I think there are a lot of potential Improvements:
+        Machine Learning:       Implementing machine learning algorithms to allow the AI to learn and adapt to different
+                                playing styles and strategies. I want it to calculate or 'foresee' like what will happen if
+                                we place a stone at somewhere, and if it is not good, go back and choose another choice
+                                to 'foresee' again. We can use Minimax or Heuristics Algorithm. (idk)
+
+        Pattern Recognition:    We can import some libraries of existing common patterns to apply and evaluate the game, and
+                                for faster and wiser responses.
+
+        User Interface:         Improving the user interface to provide a better gaming experience. Player may want to adjust
+                                the difficulty level or have a record of their score.
